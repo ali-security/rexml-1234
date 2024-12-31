@@ -438,7 +438,7 @@ module REXML
         rv.gsub!( /\r\n?/, "\n" )
         matches = rv.scan( REFERENCE_RE )
         return rv if matches.size == 0
-        rv.gsub!( /&#0((?:\d+)|(?:x[a-fA-F0-9]+));/ ) {
+        rv.gsub!( /&#((?:\d+)|(?:x[a-fA-F0-9]+));/ ) {
           m=$1
           if m.start_with?("x")
             code_point = Integer(m[1..-1], 16)
